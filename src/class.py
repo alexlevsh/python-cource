@@ -1,14 +1,27 @@
 class MyObject:
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
+    class_attribute = 8
+    class_test_attribute = 'text'
 
-    def instanceMethod(self):
-        return print(self.name, 'is', self.age)
+    def __init__(self):
+        self.text = 'text32'
+        self.data_attribute = 42
+
+    def instance_method(self):
+        print(self.data_attribute)
+        print(self.text)
+
+    @staticmethod
+    def static_method():
+        print(MyObject.class_attribute)
+
+    @staticmethod
+    def get_test():
+        print(MyObject.class_test_attribute)
 
 
-alice = MyObject('alice', 21)
-alice.instanceMethod()
-
-alex = MyObject('alex', 30)
-alex.instanceMethod()
+if __name__ == "__main__":
+    MyObject.static_method()
+    obj = MyObject()
+    obj.instance_method()
+    obj.static_method()
+    obj.get_test()
